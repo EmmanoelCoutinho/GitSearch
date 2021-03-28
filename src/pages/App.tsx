@@ -1,24 +1,53 @@
 import { useContext } from "react";
-import { ApiContext } from "../contexts/apiContext";
 
-import { Container } from "../styles/StyleApp/style";
+import {
+  Container,
+  IconContainerRight,
+  IconContainerLeft,
+  MainContainer,
+  MainText,
+  MainParagraph,
+  MainInput,
+  InputContainer,
+  MainButton,
+} from "../styles/StyleApp/style";
+import { ThemeContext } from "styled-components";
+
 import { GoLogoGithub } from "react-icons/go";
+import { RiGithubLine } from "react-icons/ri";
+import { IconContext } from "react-icons";
 
 const App: React.FC = () => {
-  const { dataUser } = useContext(ApiContext);
+  const { colors } = useContext(ThemeContext);
 
   return (
-    <Container>
-      <GoLogoGithub />
-      <p>{dataUser.avatar_url}</p>
-      <p>{dataUser.bio}</p>
-      <p>{dataUser.followers} seguidores</p>
-      <p>{dataUser.following}</p>
-      <p>{dataUser.html_url}</p>
-      <p>{dataUser.login}</p>
-      <p>{dataUser.name}</p>
-      <p>{dataUser.public_repos} repos</p>
-    </Container>
+    <IconContext.Provider
+      value={{
+        color: `${colors.neutro}`,
+        size: "50rem",
+      }}
+    >
+      <Container>
+        <IconContainerLeft>
+          <GoLogoGithub />
+        </IconContainerLeft>
+        <MainContainer>
+          <MainText>
+            Welcome to
+            <br />
+            GitSearch
+          </MainText>
+          <MainParagraph>
+            here you can find any developer in the world
+          </MainParagraph>
+          <RiGithubLine size="15rem" />
+          <InputContainer>
+            <MainInput placeholder="Insert User Name" />
+            <MainButton>Search</MainButton>
+          </InputContainer>
+        </MainContainer>
+      </Container>
+    </IconContext.Provider>
   );
 };
 

@@ -9,9 +9,10 @@ declare module "styled-components" {
       secundary: string;
       tertiaty: string;
 
-      black: string;
+      neutro: string;
 
       background: string;
+      hover: string;
       focus: string;
       button: string;
     };

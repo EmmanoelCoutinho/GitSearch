@@ -19,7 +19,9 @@ export default createGlobalStyle`
 }
 
 body {
+  background-color: ${(props) => props.theme.colors.background};
   color: ${(props) => props.theme.colors.secundary};
+  overflow: hidden;
 }
 
 body,
@@ -36,5 +38,9 @@ a {
 
 button {
   cursor: pointer;
+}
+
+.icon {
+  translate:rotate(90deg);
 }
 `;
