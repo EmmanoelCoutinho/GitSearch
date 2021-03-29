@@ -8,6 +8,7 @@ import {
 
 interface Iexported {
   dataUser: IdataUser;
+  takeUserValue: (userId: string) => void;
 }
 
 interface IdataUser {
@@ -32,7 +33,7 @@ export function ApiProvider({ children }: IapiProviderProps) {
   const url = "https://api.github.com/users";
   const clientId = process.env.REACT_APP_GITHUB_PUBLIC;
   const clientSecret = process.env.REACT_APP_GITHUB_SECRET;
-  const userForTests = "EmmanoelCoutinho";
+  const [user, setUser] = useState("");
 
   const [dataUser, setDataUser] = useState({
     avatar_url: "",
@@ -46,12 +47,17 @@ export function ApiProvider({ children }: IapiProviderProps) {
     bio: "",
   });
 
+  const takeUserValue = (userId: string) => {
+    setUser(userId);
+  };
+
   const apiFetchUser = useCallback(async () => {
     try {
       const dataResponse = await fetch(
-        `${url}/${userForTests}?client_id=${clientId}&client_secret=${clientSecret}`
+        `${url}/${user}?client_id=${clientId}&client_secret=${clientSecret}`
       );
       const data = await dataResponse.json();
+      console.log(data);
       setDataUser({
         avatar_url: data.avatar_url,
         repos_url: data.repos_url,
@@ -66,16 +72,17 @@ export function ApiProvider({ children }: IapiProviderProps) {
     } catch (error) {
       console.log(error);
     }
-  }, [clientId, clientSecret]);
+  }, [clientId, clientSecret, user]);
 
   useEffect(() => {
     apiFetchUser();
-  }, [apiFetchUser]);
+  }, [apiFetchUser, user]);
 
   return (
     <ApiContext.Provider
       value={{
         dataUser,
+        takeUserValue,
       }}
     >
       {children}

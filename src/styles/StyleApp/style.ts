@@ -7,20 +7,7 @@ export const Container = styled.div`
   width: 100vw;
 `;
 
-export const IconContainerRight = styled.div`
-  position: fixed;
-  top: 50%;
-  right: 0%;
-
-  transform: translate(60%, 0%);
-  transform: rotate(180deg);
-
-  @media (max-width: 1023px) {
-    opacity: 0;
-  }
-`;
-
-export const IconContainerLeft = styled.div`
+export const IconContainer = styled.div`
   position: fixed;
   z-index: -1;
   top: 24%;
@@ -35,7 +22,7 @@ export const IconContainerLeft = styled.div`
     top: 26%;
   }
 
-  @media (max-width: 1023px) {
+  @media (max-width: 1024px) {
     opacity: 0;
   }
 `;
@@ -111,11 +98,14 @@ export const MainInput = styled.input`
   &::-webkit-input-placeholder {
     color: ${(props) => props.theme.colors.secundary};
   }
+  &:focus {
+    outline: none;
+    box-shadow: 1px 2px 20px ${(props) => props.theme.colors.tertiaty};
+  }
 
   @media (min-width: 768px) {
     width: 70%;
     max-width: 640px;
-    height: 3.6rem;
     border-radius: 5px 0 0 5px;
     margin: 0;
   }
@@ -140,12 +130,15 @@ export const MainButton = styled.button`
     background-color: ${(props) => props.theme.colors.hover};
   }
 
+  &:focus {
+    outline: none;
+  }
+
   @media (min-width: 768px) {
     width: 30%;
     max-width: 220px;
-    margin: 1rem 0;
     border-radius: 0 5px 5px 0;
-    box-shadow: 0px 2px 0px ${(props) => props.theme.colors.hover};
+    box-shadow: none;
     margin: 0;
   }
 `;

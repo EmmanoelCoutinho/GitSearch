@@ -1,9 +1,8 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import {
   Container,
-  IconContainerRight,
-  IconContainerLeft,
+  IconContainer,
   MainContainer,
   MainText,
   MainParagraph,
@@ -16,9 +15,25 @@ import { ThemeContext } from "styled-components";
 import { GoLogoGithub } from "react-icons/go";
 import { RiGithubLine } from "react-icons/ri";
 import { IconContext } from "react-icons";
+import { ApiContext } from "../contexts/apiContext";
 
 const App: React.FC = () => {
   const { colors } = useContext(ThemeContext);
+  const { takeUserValue } = useContext(ApiContext);
+
+  const [valeuInput, setValueInput] = useState("");
+  //using this intermadiate value the function apiFetch() just work once;
+  const [intermediate, setIntermediate] = useState("");
+
+  takeUserValue(valeuInput);
+
+  const onChange = (event: any) => {
+    setIntermediate(event.target.value);
+  };
+
+  const onSubmit = () => {
+    setValueInput(intermediate);
+  };
 
   return (
     <IconContext.Provider
@@ -28,9 +43,9 @@ const App: React.FC = () => {
       }}
     >
       <Container>
-        <IconContainerLeft>
+        <IconContainer>
           <GoLogoGithub />
-        </IconContainerLeft>
+        </IconContainer>
         <MainContainer>
           <MainText>
             Welcome to
@@ -42,8 +57,10 @@ const App: React.FC = () => {
           </MainParagraph>
           <RiGithubLine size="15rem" />
           <InputContainer>
-            <MainInput placeholder="Insert User Name" />
-            <MainButton>Search</MainButton>
+            <MainInput placeholder="Insert User Name" onChange={onChange} />
+            <MainButton type="button" onClick={onSubmit}>
+              Search
+            </MainButton>
           </InputContainer>
         </MainContainer>
       </Container>
