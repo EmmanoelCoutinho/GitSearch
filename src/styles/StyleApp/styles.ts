@@ -61,7 +61,7 @@ export const MainParagraph = styled.h1`
   margin-bottom: 2rem;
 `;
 
-export const InputContainer = styled.div`
+export const InputContainer = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;

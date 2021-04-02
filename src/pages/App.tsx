@@ -9,7 +9,7 @@ import {
   MainInput,
   InputContainer,
   MainButton,
-} from "../styles/StyleApp/style";
+} from "../styles/StyleApp/styles";
 import {
   ContainerHeader,
   BackButton,
@@ -27,7 +27,12 @@ import {
   LinkRepos,
   ContainerPro,
 } from "../styles/StylesProfille/styles";
+
 import { ThemeContext } from "styled-components";
+
+// import Switch from "react-switch";
+
+// import { Context } from "../contexts/Context";
 
 import { GoLogoGithub } from "react-icons/go";
 import { GiBackwardTime } from "react-icons/gi";
@@ -43,6 +48,7 @@ const App: React.FC = () => {
   const clientSecret = process.env.REACT_APP_GITHUB_SECRET;
 
   const [mainLayout, setMainLayout] = useState(true);
+
   const [user, setUser] = useState("");
   const [intermadiate, setIntemadiate] = useState("");
   const [dataUser, setDataUser] = useState({
@@ -95,9 +101,16 @@ const App: React.FC = () => {
     setIntemadiate(event.target.value);
   };
 
-  const onSubmit = () => {
+  const onSubmit = (event: any) => {
+    event.preventDefault();
     setUser(intermadiate);
     setMainLayout(false);
+  };
+
+  const handleKeyDown = (event: any) => {
+    if (event.key === "Enter") {
+      onSubmit(event);
+    }
   };
 
   return (
@@ -123,7 +136,11 @@ const App: React.FC = () => {
             </MainParagraph>
             <RiGithubLine size="15rem" />
             <InputContainer>
-              <MainInput placeholder="Insert User Name" onChange={onChange} />
+              <MainInput
+                placeholder="Insert User Name"
+                onChange={onChange}
+                onKeyDown={handleKeyDown}
+              />
               <MainButton type="button" onClick={onSubmit}>
                 Search
               </MainButton>
@@ -144,6 +161,17 @@ const App: React.FC = () => {
             <IconContainerHeader>
               <GoLogoGithub size="5rem" />
             </IconContainerHeader>
+            {/* <Switch
+              onChange={() => {}}
+              // checked={title === "dark"}
+              checkedIcon={false}
+              uncheckedIcon={false}
+              height={15}
+              width={50}
+              handleDiameter={20}
+              onColor={`${colors.neutro}`}
+              offColor={`${colors.neutro}`}
+            /> */}
           </ContainerHeader>
           <ContainerProfile>
             <ContainerProfileInfos>

@@ -14,6 +14,7 @@ export const ContainerHeader = styled.div`
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   width: 100%;
   height: 3rem;
@@ -76,9 +77,9 @@ export const LoginText = styled.a`
 `;
 
 export const ContainerInfos = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 60%;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
   height: 2rem;
 
   margin: 0.5rem auto;
@@ -118,6 +119,10 @@ export const NameRepos = styled.p`
   font-weight: 500;
 
   color: ${(props) => props.theme.colors.button};
+
+  @media (max-width: 315px) {
+    font-size: 1.4rem;
+  }
 `;
 
 export const StarsRepos = styled.div`
@@ -135,4 +140,8 @@ export const LinkRepos = styled.a`
   justify-content: flex-end;
 
   font-size: 1.2rem;
+
+  @media (max-width: 315px) {
+    font-size: 0.9rem;
+  }
 `;
