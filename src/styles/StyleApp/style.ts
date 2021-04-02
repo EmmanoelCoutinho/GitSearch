@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
+  flex-direction: column;
 
   height: 100vh;
   width: 100vw;
@@ -47,6 +48,7 @@ export const MainText = styled.h1`
   font-size: 4.5rem;
   line-height: 4.2rem;
   text-transform: uppercase;
+  text-align: center;
 
   margin: 1rem 0;
 `;
