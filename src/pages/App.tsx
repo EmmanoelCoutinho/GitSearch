@@ -163,10 +163,10 @@ const App: React.FC = () => {
               </InputContainer>
             </MainContainer>
             <MainFooter>
-              <ThemeSelector tradeTheme={tradeTheme} />
               <FooterText href="https://github.com/EmmanoelCoutinho">
                 Made by: @EmmanoelCoutinho
               </FooterText>
+              <ThemeSelector tradeTheme={tradeTheme} />
             </MainFooter>
           </Container>
         ) : (
