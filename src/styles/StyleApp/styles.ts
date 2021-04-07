@@ -4,15 +4,19 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
 
+  background-color: ${(props) => props.theme.colors.background};
+  color: ${(props) => props.theme.colors.neutro};
+
+  overflow: hidden;
+
   height: 100vh;
   width: 100vw;
 `;
 
 export const IconContainer = styled.div`
   position: fixed;
-  z-index: -1;
-  top: 24%;
   left: 50%;
+  top: 0%;
 
   transform: translate(-50%);
 
@@ -20,7 +24,7 @@ export const IconContainer = styled.div`
     top: 22%;
   }
   @media (min-width: 1024px) {
-    top: 26%;
+    top: 22%;
   }
 
   @media (max-width: 1024px) {
@@ -53,7 +57,7 @@ export const MainText = styled.h1`
   margin: 1rem 0;
 `;
 
-export const MainParagraph = styled.h1`
+export const MainParagraph = styled.p`
   color: ${(props) => props.theme.colors.button};
   font-size: 1.8rem;
   font-weight: 400;
@@ -66,6 +70,8 @@ export const InputContainer = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  z-index: 2;
 
   margin-right: 1rem;
   margin-bottom: 1.5rem;
@@ -143,4 +149,23 @@ export const MainButton = styled.button`
     box-shadow: none;
     margin: 0;
   }
+`;
+
+export const MainFooter = styled.footer`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  z-index: 2;
+
+  width: 100%;
+  height: 2.5rem;
+
+  background-color: ${(props) => props.theme.colors.primary};
+`;
+
+export const FooterText = styled.a`
+  color: ${(props) => props.theme.colors.button};
+  font-size: 1.4rem;
+  font-weight: 400;
 `;

@@ -1,4 +1,7 @@
-import { useCallback, useState, useContext, useEffect } from "react";
+import { useCallback, useState, useEffect } from "react";
+
+import Header from "../components/Header/index";
+import ThemeSelector from "../components/ThemeSelector/index";
 
 import {
   Container,
@@ -9,11 +12,10 @@ import {
   MainInput,
   InputContainer,
   MainButton,
+  MainFooter,
+  FooterText,
 } from "../styles/StyleApp/styles";
 import {
-  ContainerHeader,
-  BackButton,
-  IconContainerHeader,
   ContainerProfile,
   ContainerProfileInfos,
   ProfilePicture,
@@ -28,26 +30,31 @@ import {
   ContainerPro,
 } from "../styles/StylesProfille/styles";
 
-import { ThemeContext } from "styled-components";
-
-// import Switch from "react-switch";
-
-// import { Context } from "../contexts/Context";
+//themes section
+import { ThemeProvider } from "styled-components";
+import { light } from "../styles/themes/light";
+import { dark } from "../styles/themes/dark";
 
 import { GoLogoGithub } from "react-icons/go";
-import { GiBackwardTime } from "react-icons/gi";
 import { GiStarsStack } from "react-icons/gi";
 import { RiGithubLine } from "react-icons/ri";
 import { IconContext } from "react-icons";
 
 const App: React.FC = () => {
-  const { colors } = useContext(ThemeContext);
-
   const url = "https://api.github.com/users";
   const clientId = process.env.REACT_APP_GITHUB_PUBLIC;
   const clientSecret = process.env.REACT_APP_GITHUB_SECRET;
 
   const [mainLayout, setMainLayout] = useState(true);
+  const [theme, setTheme] = useState(() => {
+    const storageValue = localStorage.getItem("currentTheme");
+
+    if (storageValue) {
+      return JSON.parse(storageValue);
+    } else {
+      return light;
+    }
+  });
 
   const [user, setUser] = useState("");
   const [intermadiate, setIntemadiate] = useState("");
@@ -93,9 +100,10 @@ const App: React.FC = () => {
   }, [dataUser.repos_url]);
 
   useEffect(() => {
+    localStorage.setItem("currentTheme", JSON.stringify(theme));
     apiFetchUser();
     apiFetchRepos();
-  }, [apiFetchUser, apiFetchRepos, user]);
+  }, [apiFetchUser, apiFetchRepos, user, theme]);
 
   const onChange = (event: any) => {
     setIntemadiate(event.target.value);
@@ -113,94 +121,84 @@ const App: React.FC = () => {
     }
   };
 
+  const backButtonClick = () => {
+    setMainLayout(true);
+  };
+
+  const tradeTheme = () => {
+    setTheme(theme.title === "light" ? dark : light);
+  };
+
   return (
-    <IconContext.Provider
-      value={{
-        color: `${colors.neutro}`,
-        size: "50rem",
-      }}
-    >
-      {mainLayout ? (
-        <Container>
-          <IconContainer>
-            <GoLogoGithub />
-          </IconContainer>
-          <MainContainer>
-            <MainText>
-              Welcome to
-              <br />
-              GitSearch
-            </MainText>
-            <MainParagraph>
-              here you can find any developer in the world
-            </MainParagraph>
-            <RiGithubLine size="15rem" />
-            <InputContainer>
-              <MainInput
-                placeholder="Insert User Name"
-                onChange={onChange}
-                onKeyDown={handleKeyDown}
-              />
-              <MainButton type="button" onClick={onSubmit}>
-                Search
-              </MainButton>
-            </InputContainer>
-          </MainContainer>
-        </Container>
-      ) : (
-        <ContainerPro>
-          <ContainerHeader>
-            <BackButton
-              onClick={() => {
-                setMainLayout(true);
-              }}
-            >
-              <GiBackwardTime size="2rem" />
-              Back To Main
-            </BackButton>
-            <IconContainerHeader>
-              <GoLogoGithub size="5rem" />
-            </IconContainerHeader>
-            {/* <Switch
-              onChange={() => {}}
-              // checked={title === "dark"}
-              checkedIcon={false}
-              uncheckedIcon={false}
-              height={15}
-              width={50}
-              handleDiameter={20}
-              onColor={`${colors.neutro}`}
-              offColor={`${colors.neutro}`}
-            /> */}
-          </ContainerHeader>
-          <ContainerProfile>
-            <ContainerProfileInfos>
-              <ProfilePicture src={dataUser.avatar_url} />
-              <LoginText href={dataUser.html_url}>{dataUser.login}</LoginText>
-              <ContainerInfos>
-                <TextInfos>Followers: {dataUser.followers}</TextInfos>
-                <TextInfos>Following: {dataUser.following}</TextInfos>
-              </ContainerInfos>
-            </ContainerProfileInfos>
-            <ContainerRepos>
-              {dataRepos.map((data: any) => (
-                <ContainerReposInner key={data.id}>
-                  <NameRepos key={data.name}>{data.name}</NameRepos>
-                  <StarsRepos key={data.stargazers_count}>
-                    {data.stargazers_count}
-                    <GiStarsStack size="1.5rem" />
-                  </StarsRepos>
-                  <p key={data.language}>{data.language}</p>
-                  <LinkRepos key={data.url} href={data.url}>
-                    Link To Repo
-                  </LinkRepos>
-                </ContainerReposInner>
-              ))}
-            </ContainerRepos>
-          </ContainerProfile>
-        </ContainerPro>
-      )}
-    </IconContext.Provider>
+    <ThemeProvider theme={theme}>
+      <IconContext.Provider
+        value={{
+          size: "50rem",
+        }}
+      >
+        {mainLayout ? (
+          <Container>
+            <IconContainer>
+              <GoLogoGithub />
+            </IconContainer>
+            <MainContainer>
+              <MainText>
+                Welcome to
+                <br />
+                GitSearch
+              </MainText>
+              <MainParagraph>
+                here you can find any developer in the world
+              </MainParagraph>
+              <RiGithubLine size="15rem" />
+              <InputContainer>
+                <MainInput
+                  placeholder="Insert User Name"
+                  onChange={onChange}
+                  onKeyDown={handleKeyDown}
+                />
+                <MainButton type="button" onClick={onSubmit}>
+                  Search
+                </MainButton>
+              </InputContainer>
+            </MainContainer>
+            <MainFooter>
+              <ThemeSelector tradeTheme={tradeTheme} />
+              <FooterText href="https://github.com/EmmanoelCoutinho">
+                Made by: @EmmanoelCoutinho
+              </FooterText>
+            </MainFooter>
+          </Container>
+        ) : (
+          <ContainerPro>
+            <Header backButtonClick={backButtonClick} tradeTheme={tradeTheme} />
+            <ContainerProfile>
+              <ContainerProfileInfos>
+                <ProfilePicture src={dataUser.avatar_url} />
+                <LoginText href={dataUser.html_url}>{dataUser.login}</LoginText>
+                <ContainerInfos>
+                  <TextInfos>Followers: {dataUser.followers}</TextInfos>
+                  <TextInfos>Following: {dataUser.following}</TextInfos>
+                </ContainerInfos>
+              </ContainerProfileInfos>
+              <ContainerRepos>
+                {dataRepos.map((data: any) => (
+                  <ContainerReposInner key={data.id}>
+                    <NameRepos>{data.name}</NameRepos>
+                    <StarsRepos>
+                      {data.stargazers_count}
+                      <GiStarsStack size="1.5rem" />
+                    </StarsRepos>
+                    <p>{data.language}</p>
+                    <LinkRepos href={data.url}>Link To Repo</LinkRepos>
+                  </ContainerReposInner>
+                ))}
+              </ContainerRepos>
+            </ContainerProfile>
+          </ContainerPro>
+        )}
+      </IconContext.Provider>
+    </ThemeProvider>
   );
 };
 

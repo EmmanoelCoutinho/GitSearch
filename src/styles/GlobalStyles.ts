@@ -18,11 +18,6 @@ export default createGlobalStyle`
   }
 }
 
-body {
-  background-color: ${(props) => props.theme.colors.background};
-  color: ${(props) => props.theme.colors.secundary};
-}
-
 body,
 input,
 textarea,
