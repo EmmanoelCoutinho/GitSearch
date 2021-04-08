@@ -19,6 +19,10 @@ export const ContainerProfile = styled.div`
   min-height: 100%;
 
   margin: 0 auto 1rem;
+
+  @media (min-width: 1023px) {
+    width: 60vw;
+  }
 `;
 
 export const ContainerProfileInfos = styled.div`

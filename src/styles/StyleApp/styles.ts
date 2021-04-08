@@ -59,6 +59,8 @@ export const MainText = styled.h1`
 
 export const MainParagraph = styled.p`
   color: ${(props) => props.theme.colors.button};
+
+  text-align: center;
   font-size: 1.8rem;
   font-weight: 400;
 
@@ -151,20 +153,16 @@ export const MainButton = styled.button`
   }
 `;
 
-export const MainFooter = styled.footer`
+export const MainMenu = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 
-  z-index: 2;
-
-  width: 100%;
-  height: 2.5rem;
-
-  background-color: ${(props) => props.theme.colors.primary};
+  height: 10%;
 `;
 
-export const FooterText = styled.a`
+export const MenuLink = styled.a`
   color: ${(props) => props.theme.colors.button};
   font-size: 1.4rem;
   font-weight: 400;

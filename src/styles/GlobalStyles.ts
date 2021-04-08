@@ -33,4 +33,8 @@ a {
 button,a {
   cursor: pointer;
 }
+
+div:focus {
+  outline: none;
+}
 `;

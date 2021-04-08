@@ -3,6 +3,9 @@ import { useCallback, useState, useEffect } from "react";
 import Header from "../components/Header/index";
 import ThemeSelector from "../components/ThemeSelector/index";
 
+import { slide as Menu } from "react-burger-menu";
+
+import { StylesBurgerMenu } from "../styles/StylesBurgerMenu/styles";
 import {
   Container,
   IconContainer,
@@ -12,8 +15,8 @@ import {
   MainInput,
   InputContainer,
   MainButton,
-  MainFooter,
-  FooterText,
+  MainMenu,
+  MenuLink,
 } from "../styles/StyleApp/styles";
 import {
   ContainerProfile,
@@ -138,6 +141,18 @@ const App: React.FC = () => {
       >
         {mainLayout ? (
           <Container>
+            <Menu styles={StylesBurgerMenu}>
+              <div>
+                <MainMenu>
+                  <p>Click to switch the theme!</p>
+                  <ThemeSelector tradeTheme={tradeTheme} />
+                </MainMenu>
+
+                <MenuLink href="https://github.com/EmmanoelCoutinho">
+                  Made by: @EmmanoelCoutinho
+                </MenuLink>
+              </div>
+            </Menu>
             <IconContainer>
               <GoLogoGithub />
             </IconContainer>
@@ -162,12 +177,6 @@ const App: React.FC = () => {
                 </MainButton>
               </InputContainer>
             </MainContainer>
-            <MainFooter>
-              <FooterText href="https://github.com/EmmanoelCoutinho">
-                Made by: @EmmanoelCoutinho
-              </FooterText>
-              <ThemeSelector tradeTheme={tradeTheme} />
-            </MainFooter>
           </Container>
         ) : (
           <ContainerPro>

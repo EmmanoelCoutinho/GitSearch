@@ -17,7 +17,7 @@ const ThemeSelector: React.FC<IThemeSelector> = ({ tradeTheme }) => {
       checked={title === "dark"}
       checkedIcon={false}
       uncheckedIcon={false}
-      height={15}
+      height={20}
       width={50}
       handleDiameter={20}
       onColor={colors.neutro}
