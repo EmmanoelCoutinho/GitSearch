@@ -19,7 +19,7 @@ const ThemeSelector: React.FC<IThemeSelector> = ({ tradeTheme }) => {
       uncheckedIcon={false}
       height={20}
       width={50}
-      handleDiameter={20}
+      handleDiameter={25}
       onColor={colors.neutro}
       offColor={colors.neutro}
     />

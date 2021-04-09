@@ -159,7 +159,7 @@ export const MainMenu = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  height: 10%;
+  height: 11%;
 `;
 
 export const MenuLink = styled.a`

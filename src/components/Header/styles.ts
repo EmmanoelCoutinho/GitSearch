@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const ContainerHeader = styled.div`
   position: fixed;
+  overflow: hidden;
 
   display: flex;
   align-items: center;

@@ -78,6 +78,7 @@ const App: React.FC = () => {
         `${url}/${user}?client_id=${clientId}&client_secret=${clientSecret}`
       );
       const data = await dataResponse.json();
+      console.log(data);
       setDataUser({
         avatar_url: data.avatar_url,
         repos_url: data.repos_url,
@@ -199,7 +200,7 @@ const App: React.FC = () => {
                       <GiStarsStack size="1.5rem" />
                     </StarsRepos>
                     <p>{data.language}</p>
-                    <LinkRepos href={data.url}>Link To Repo</LinkRepos>
+                    <LinkRepos href={data.html_url}>Link To Repo</LinkRepos>
                   </ContainerReposInner>
                 ))}
               </ContainerRepos>

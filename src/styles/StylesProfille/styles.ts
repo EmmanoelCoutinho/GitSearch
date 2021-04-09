@@ -8,7 +8,6 @@ export const ContainerPro = styled.div`
   color: ${(props) => props.theme.colors.neutro};
 
   min-height: 100vh;
-  overflow-y: auto;
   width: 100vw;
 `;
 
@@ -19,10 +18,6 @@ export const ContainerProfile = styled.div`
   min-height: 100%;
 
   margin: 0 auto 1rem;
-
-  @media (min-width: 1023px) {
-    width: 60vw;
-  }
 `;
 
 export const ContainerProfileInfos = styled.div`
@@ -37,6 +32,10 @@ export const ContainerProfileInfos = styled.div`
 
   margin: 4rem auto 2rem;
   padding-bottom: 0.5rem;
+
+  @media (min-width: 1023px) {
+    width: 60%;
+  }
 `;
 
 export const ProfilePicture = styled.img`
@@ -59,10 +58,12 @@ export const LoginText = styled.a`
 export const ContainerInfos = styled.div`
   display: flex;
   justify-content: space-around;
+  align-items: center;
+
   width: 100%;
   height: 2rem;
 
-  margin: 0.5rem auto;
+  margin: 2rem auto;
   padding-bottom: 1rem;
 `;
 
@@ -90,7 +91,7 @@ export const ContainerReposInner = styled.div`
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
 
-  margin-bottom: 0.7rem;
+  margin-bottom: 1rem;
   padding: 0 0.5rem;
 `;
 
