@@ -82,10 +82,11 @@ export const ContainerRepos = styled.div`
 
 export const ContainerReposInner = styled.div`
   display: grid;
+
   grid-template-columns: repeat(2, 1fr);
 
   width: 80vw;
-  height: 5rem;
+  height: 100%;
 
   background-color: ${(props) => props.theme.colors.primary};
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
@@ -101,7 +102,7 @@ export const NameRepos = styled.p`
 
   color: ${(props) => props.theme.colors.button};
 
-  @media (max-width: 315px) {
+  @media (max-width: 425px) {
     font-size: 1.4rem;
   }
 `;

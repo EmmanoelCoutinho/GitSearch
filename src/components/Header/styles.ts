@@ -11,6 +11,7 @@ export const ContainerHeader = styled.div`
   width: 100%;
   height: 3rem;
   background-color: ${(props) => props.theme.colors.primary};
+  opacity: 0.8;
 
   padding: 0 0.5rem;
 `;
