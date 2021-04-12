@@ -26,7 +26,9 @@ You can just delete the environment variables, which are called in the app.tsx, 
 <hr/>
 
 <h2>Preview</h2>
-<h3 >Dark Mode:</h3>
-
-  <img src="./.github/dark_1.jpeg" width="40%"/>
-  <img src="./.github/dark_2.jpeg" width="40%"/>
+<h3>Dark Mode:</h3>
+    <img src="./.github/dark_1.jpeg" width="40%" >
+    <img src="./.github/dark_2.jpeg" width="40%"/>
+<h3>Light Mode:></h3>
+    <img src="./.github/light_desktop_1.png" width="40%" >
+    <img src="./.github/light_desktop_2.png" width="40%"/>
