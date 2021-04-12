@@ -2,7 +2,7 @@
 
 This is an web application that lists your repositories on github, made using Typescript, styled-components and React.
 
-<h2>The link [Click Here](https://gitsearch-alpha.vercel.app/)</h2>
+<h2><a href="https://gitsearch-alpha.vercel.app/">Link to site</a></h2>
 
 ## How to use?
 
@@ -24,4 +24,4 @@ You can go to the github api documentation and make your own keys, after that cr
 <h3>`Second:`</h3>
 You can just delete the environment variables, which are called in the app.tsx, remove them from fetch and useEffect as well and it should work (the first is more advisable! ^^)
 
-![oioioioi](https://www.google.com/url?sa=i&url=https%3A%2F%2Fbr.leagueoflegends.com%2Fpt-br%2Fchampions%2Fyasuo%2F&psig=AOvVaw1xdwPiq1ftmLUGTzWYUYqE&ust=1618175318407000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCICyifrK9O8CFQAAAAAdAAAAABAD)
+
