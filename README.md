@@ -1,46 +1,27 @@
-# Getting Started with Create React App
+# Here you can find any developer in the world!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is an web application that lists your repositories on github, made using Typescript, styled-components and React.
 
-## Available Scripts
+<h2>The link [Click Here](https://gitsearch-alpha.vercel.app/)</h2>
 
-In the project directory, you can run:
+## How to use?
 
-### `yarn start`
+<h2>Frist of all:</h2>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `Yarn`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+to get all the dependencies that were used in this project, you can check them in the package.json,
 
-### `yarn test`
+<h2>Now, the environment variables:</h2>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+In this project i used two environment variables, and you have two options about that:
 
-### `yarn build`
+<h3>`Frist:`</h3>
+You can go to the github api documentation and make your own keys, after that create a .env file at the root of the project and write:<br/>
+ REACT_APP_GITHUB_PUBLIC= your_public_key;<br/>
+ REACT_APP_GITHUB_SECRET= your_secret_key;
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h3>`Second:`</h3>
+You can just delete the environment variables, which are called in the app.tsx, remove them from fetch and useEffect as well and it should work (the first is more advisable! ^^)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+![oioioioi](https://www.google.com/url?sa=i&url=https%3A%2F%2Fbr.leagueoflegends.com%2Fpt-br%2Fchampions%2Fyasuo%2F&psig=AOvVaw1xdwPiq1ftmLUGTzWYUYqE&ust=1618175318407000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCICyifrK9O8CFQAAAAAdAAAAABAD)
