@@ -6,13 +6,13 @@ This is an web application that lists your repositories on github, made using Ty
 
 ## How to use?
 
-<h2>Frist of all:</h2>
+<h3>Frist of all:</h3>
 
 ### `Yarn`
 
 to get all the dependencies that were used in this project, you can check them in the package.json,
 
-<h2>Now, the environment variables:</h2>
+<h3>Now, the environment variables:</h3>
 
 In this project i used two environment variables, and you have two options about that:
 
@@ -24,4 +24,5 @@ You can go to the github api documentation and make your own keys, after that cr
 <h3>`Second:`</h3>
 You can just delete the environment variables, which are called in the app.tsx, remove them from fetch and useEffect as well and it should work (the first is more advisable! ^^)
 
-
+<h2>Preview</h2>
+<img src="./.github/dark_1.jpeg"/>
