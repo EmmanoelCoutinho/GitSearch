@@ -30,5 +30,5 @@ You can just delete the environment variables, which are called in the app.tsx, 
     <img src="./.github/dark_1.jpeg" width="40%" >
     <img src="./.github/dark_2.jpeg" width="40%"/>
 <h3>Light Mode:></h3>
-    <img src="./.github/light_desktop_1.png" width="40%" >
-    <img src="./.github/light_desktop_2.png" width="40%"/>
+    <img src="./.github/light_desktop_1.png" width="50%" >
+    <img src="./.github/light_desktop_2.PNG" width="50%"/>
