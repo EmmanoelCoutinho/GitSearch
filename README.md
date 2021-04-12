@@ -16,13 +16,17 @@ to get all the dependencies that were used in this project, you can check them i
 
 In this project i used two environment variables, and you have two options about that:
 
-<h3>`Frist:`</h3>
+<h3>Frist:</h3>
 You can go to the github api documentation and make your own keys, after that create a .env file at the root of the project and write:<br/>
  REACT_APP_GITHUB_PUBLIC= your_public_key;<br/>
  REACT_APP_GITHUB_SECRET= your_secret_key;
 
-<h3>`Second:`</h3>
+<h3>Second:</h3>
 You can just delete the environment variables, which are called in the app.tsx, remove them from fetch and useEffect as well and it should work (the first is more advisable! ^^)
+<hr/>
 
 <h2>Preview</h2>
-<img src="./.github/dark_1.jpeg"/>
+<h3 >Dark Mode:</h3>
+
+  <img src="./.github/dark_1.jpeg" width="40%"/>
+  <img src="./.github/dark_2.jpeg" width="40%"/>
