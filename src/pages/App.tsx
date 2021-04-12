@@ -168,13 +168,11 @@ const App: React.FC = () => {
               <RiGithubLine size="15rem" />
               <InputContainer>
                 <MainInput
-                  placeholder="Insert User Name"
+                  placeholder="Insert Username"
                   onChange={onChange}
                   onKeyDown={handleKeyDown}
                 />
-                <MainButton type="button" onClick={onSubmit}>
-                  Search
-                </MainButton>
+                <MainButton onClick={onSubmit}>Search</MainButton>
               </InputContainer>
             </MainContainer>
           </Container>
